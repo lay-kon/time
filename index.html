@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="pt">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>What time is it?</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700&family=Figtree:wght@400;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="hero-copy"><span class="eyebrow">ENGLISH · MINI LESSON</span><h1>Que horas são<span class="accent">?</span></h1>
+  <p class="sub">Aprende a dizer as horas em inglês: percebe a regra, mexe no relógio e testa-te.</p></div>
+  <div class="hero-clock" aria-hidden="true"><div class="hero-clock-face"><span class="hc12">12</span><span class="hc3">3</span><span class="hc6">6</span><span class="hc9">9</span><i class="hero-hour"></i><i class="hero-minute"></i><i class="hero-dot"></i></div></div>
+</header>
+<nav role="tablist">
+<button role="tab" data-p="aprender"><span class="nav-icon">✦</span> Aprender</button>
+<button role="tab" data-p="praticar"><span class="nav-icon">◷</span> Praticar</button>
+<button role="tab" data-p="truques"><span class="nav-icon">⌁</span> Truques</button>
+<button role="tab" data-p="teste"><span class="nav-icon">✓</span> Teste</button>
+</nav>
+
+<section id="aprender" role="tabpanel">
+<h2>Duas palavras mandam em tudo: past e to</h2>
+<p>Olha só para o ponteiro grande, o dos minutos. Em inglês o relógio divide-se em duas metades.</p>
+<div class="rule">
+<div class="a"><p class="tag"><b class="p">Passou</b> · de 1 a 29 minutos</p><p class="f">minutos + <b class="p">past</b> + hora actual</p><p class="eg">3:20 → <i>twenty past three</i><span>Passaram 20 minutos depois das 3.</span></p></div>
+<div class="b"><p class="tag"><b class="t">Falta</b> · de 31 a 59 minutos</p><p class="f">minutos que faltam + <b class="t">to</b> + hora seguinte</p><p class="eg">3:40 → <i>twenty to four</i><span>Faltam 20 minutos para as 4.</span></p><p class="cd">Contagem decrescente, dos 29 até ao 0: <code>31 min → 29 to</code><code>40 min → 20 to</code><code>50 min → 10 to</code><code>59 min → 1 to</code></p></div>
+<div class="c"><p class="tag"><b>Casos especiais</b></p><table class="sp"><tr><th>Minutos</th><th>Dizes</th><th>Exemplo</th></tr><tr><td>0</td><td><i>o’clock</i></td><td>three o’clock</td></tr><tr><td>15</td><td><i>quarter past</i></td><td>quarter past three</td></tr><tr><td>30</td><td><i>half past</i></td><td>half past three <small>(forma convencional para :30)</small></td></tr><tr><td>45</td><td><i>quarter to</i></td><td>quarter to four</td></tr></table></div>
+</div>
+<h2>Vocabulário essencial</h2>
+<dl>
+<dt>o’clock</dt><dd>hora certa, sem minutos</dd>
+<dt>quarter</dt><dd>um quarto de hora (15 minutos)</dd>
+<dt>half</dt><dd>meia hora (30 minutos)</dd>
+<dt>past</dt><dd>depois de</dd>
+<dt>to</dt><dd>para (falta para)</dd>
+<dt>a.m. / p.m.</dt><dd>a.m.: da meia-noite até antes do meio-dia · p.m.: do meio-dia até antes da meia-noite. 12 a.m. = meia-noite; 12 p.m. = meio-dia.</dd>
+<dt>noon / midnight</dt><dd>meio-dia / meia-noite</dd>
+</dl>
+<h2>Exemplos</h2>
+<p class="hint">Toca num exemplo para o ver no relógio.</p>
+<div class="rows" id="ex"></div>
+<h2>Perguntar e responder</h2>
+<dl>
+<dt>What time is it?</dt><dd>It’s half past three.</dd>
+<dt>What time does the class start?</dt><dd>It starts at eight o’clock.</dd>
+</dl>
+</section>
+
+<section id="praticar" role="tabpanel" hidden>
+<div class="lab">
+<div>
+<svg class="clk live" id="clk" tabindex="0" aria-label="Relógio interactivo"></svg>
+<p class="hint">Arrasta na zona exterior para mexer nos minutos. Arrasta na zona do meio para mexer na hora.</p>
+</div>
+<div>
+<div class="ampm-panel" aria-label="Escolher período do dia">
+<p class="ampm-title">Que período queres praticar?</p>
+<div class="ampm-switch">
+<button type="button" id="choose-am" aria-pressed="false">a.m.</button>
+<button type="button" id="choose-pm" aria-pressed="true">p.m.</button>
+</div>
+<p class="ampm-note" id="ampm-note">p.m. — do meio-dia até antes da meia-noite.</p>
+<div class="ampm-legend"><div><strong>a.m.</strong>ante meridiem · da meia-noite até antes do meio-dia</div><div><strong>p.m.</strong>post meridiem · do meio-dia até antes da meia-noite</div></div>
+<p class="ampm-note"><b>Atenção:</b> 12 a.m. = meia-noite · 12 p.m. = meio-dia.</p>
+</div>
+<div class="out" id="out">
+<p class="big" id="dig"></p>
+<p class="meta" id="ap"></p>
+<p class="eng" id="eng"></p>
+<p class="meta" id="alt"></p>
+<p class="meta" id="pt"></p>
+</div>
+<div class="why" id="why"></div>
+<div class="bar">
+<button class="btn" id="say">Ouvir</button>
+<button class="btn" data-d="-60">−1 hora</button><button class="btn" data-d="60">+1 hora</button>
+<button class="btn" data-d="-5">−5 min</button><button class="btn" data-d="5">+5 min</button>
+
+</div>
+<div class="bar">
+<button class="btn" data-m="0">Em ponto</button><button class="btn" data-m="15">Quarter past</button><button class="btn" data-m="30">Half past</button><button class="btn" data-m="45">Quarter to</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="truques" role="tabpanel" hidden>
+<h2>A cola rápida</h2>
+<p>Passou ou falta? É só isso. A esquerda é o que passou, a direita é o que falta, e os dois lados espelham-se.</p>
+<div class="mir" id="mir"></div>
+<p class="hint">Toca numa hora para a ver no relógio.</p>
+<h2>Expressões e usos comuns</h2>
+<p class="hint">Nem todas as diferenças são erros gramaticais: algumas formas são apenas mais naturais ou convencionais do que outras.</p>
+<div class="hacks" id="hacks"></div>
+</section>
+
+<section id="teste" role="tabpanel" hidden>
+<div class="q">
+<div class="qh"><span id="qno"></span><span id="qsc"></span></div>
+<div id="qprogress" aria-label="Progresso do teste"><span id="qprogress-fill"></span></div>
+<div id="qbox">
+<svg class="clk" id="qclk" aria-label="Relógio da pergunta" style="max-width:300px"></svg>
+<p class="say" id="qp"></p>
+<button class="btn" id="qsay" hidden>Ouvir</button>
+<div class="opts" id="opts"></div>
+<div class="fb" id="fb" hidden></div>
+<button class="btn" id="next" hidden>Seguinte</button>
+</div>
+<div id="end" hidden>
+<p class="big" id="final"></p>
+<p id="finalmsg"></p>
+<button class="btn" id="again">Recomeçar</button>
+</div>
+</div>
+</section>
+<footer class="credits" aria-label="Créditos">
+  <div class="credits-main">
+    <span class="credits-kicker">Criado por</span>
+    <p class="credits-name"><span class="credits-mark" aria-hidden="true">K</span>Eduardo Francisco - Kairo</p>
+  </div>
+  <p class="credits-note">Um projecto feito para aprender, praticar e partilhar conhecimento.</p>
+</footer>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
