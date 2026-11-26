@@ -17,22 +17,7 @@
     padding-bottom: env(safe-area-inset-bottom, 0px)
 }
 
-@media (prefers-color-scheme:dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #0E1A17;
-        --panel: #162622;
-        --ink: #E6F0EC;
-        --muted: #93AAA3;
-        --line: #2B403A;
-        --past: #F0A92B;
-        --to: #7AA2FF;
-        --pastbg: #F0A92B40;
-        --tobg: #7AA2FF40;
-        --ok: #4CC38A;
-        --bad: #FF7A66;
-        color-scheme: dark
-    }
-}
+
 
 :root[data-theme="dark"] {
     --bg: #0E1A17;
@@ -343,11 +328,7 @@ dd {
     align-items: start
 }
 
-@media(min-width:760px) {
-    .lab {
-        grid-template-columns: minmax(0, 420px) 1fr
-    }
-}
+
 
 .analog-clock {
     width: 100%;
@@ -605,22 +586,7 @@ code {
     color-scheme: light
 }
 
-@media(prefers-color-scheme:dark) {
-    :root:not([data-theme="light"]) {
-        --bg: #0b1220;
-        --panel: #121d30;
-        --ink: #e8efff;
-        --muted: #98a8c2;
-        --line: #25344c;
-        --past: #f0a85b;
-        --to: #8da5ff;
-        --pastbg: #f0a85b35;
-        --tobg: #8da5ff35;
-        --ok: #58d3a0;
-        --bad: #ff837f;
-        color-scheme: dark
-    }
-}
+
 
 :root[data-theme="dark"] {
     --bg: #0b1220;
@@ -997,113 +963,9 @@ dl {
     font-size: 1.65rem
 }
 
-@media(max-width:650px) {
-    .wrap {
-        padding: 18px 14px 48px
-    }
 
-    .hero {
-        padding: 24px 22px;
-        border-radius: 22px
-    }
 
-    .hero-clock {
-        width: 116px;
-        height: 116px
-    }
 
-    .hero-clock-face {
-        width: 90px;
-        height: 90px
-    }
-
-    .hero-clock-face span {
-        font-size: 10px
-    }
-
-    .hc12 {
-        top: 5px
-    }
-
-    .hc3 {
-        right: 6px
-    }
-
-    .hc6 {
-        bottom: 5px
-    }
-
-    .hc9 {
-        left: 6px
-    }
-
-    .hero-hour {
-        height: 28px
-    }
-
-    .hero-minute {
-        height: 38px
-    }
-
-    .hero h1 {
-        font-size: 2.55rem
-    }
-
-    .hero .sub {
-        font-size: .98rem
-    }
-
-    .nav-icon {
-        display: none
-    }
-
-    nav {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 4px;
-        padding: 5px
-    }
-
-    nav button {
-        padding: 10px 6px;
-        font-size: .9rem
-    }
-
-    .rule>div {
-        padding: 16px
-    }
-
-    .lab {
-        gap: 14px
-    }
-
-    .mir {
-        gap: 6px
-    }
-
-    .mir button {
-        padding: 9px 10px
-    }
-
-    dl {
-        padding: 14px;
-        gap: 6px 12px
-    }
-}
-
-@media(max-width:430px) {
-    .hero-clock {
-        display: none
-    }
-
-    .hero {
-        padding: 25px 20px
-    }
-
-    .hero h1 {
-        font-size: 2.45rem
-    }
-}
 
 /* Rodapé e créditos do projeto. */
 .credits {
@@ -1167,19 +1029,7 @@ dl {
     vertical-align: middle
 }
 
-@media(max-width:520px) {
-    .credits {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 10px;
-        margin-top: 42px;
-        padding-top: 20px
-    }
 
-    .credits-note {
-        text-align: left
-    }
-}
 
 /* Layout do teste, progresso, resultado e adaptação para ecrãs estreitos. */
 #teste .quiz-card {
@@ -1406,32 +1256,7 @@ dl {
     font-size: .84rem
 }
 
-@media(max-width:600px) {
-    #teste .quiz-card {
-        border-radius: 18px;
-        padding: 18px 14px
-    }
 
-    #teste .answer-options {
-        grid-template-columns: 1fr;
-        gap: 8px
-    }
-
-    #teste .answer-option {
-        min-height: 54px
-    }
-
-    .credits {
-        align-items: flex-start;
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 42px
-    }
-
-    .credits-note {
-        text-align: left
-    }
-}
 
 /* Lição: percurso, perguntas e vocabulário */
 #aprender .learn-intro {
@@ -1481,11 +1306,3 @@ dl {
 .conversation-card { margin-top: 22px; background: color-mix(in srgb, var(--past) 5%, var(--panel)) }
 .conversation-card p { display: flex; flex-direction: column; gap: 2px; margin: 12px 0 }
 .conversation-card small { color: var(--muted) }
-
-@media(max-width:650px) {
-    .phrase-grid, .day-phrases { grid-template-columns: 1fr }
-    .time-units { grid-template-columns: 1fr }
-    .time-units article { padding: 11px 13px }
-    .learn-section { gap: 10px; margin-top: 30px }
-    #aprender .learn-intro { border-radius: 18px }
-}

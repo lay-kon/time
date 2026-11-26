@@ -43,6 +43,7 @@ decrescente (de 29 até 0) e usa-se *to*: é o que falta para a hora seguinte.
 
 - `index.html`: conteúdo e estrutura das quatro abas.
 - `styles_css/style.css`: temas, componentes visuais e regras responsivas.
+- `styles_css/responsive.css`: media queries para tamanhos de ecrã e preferências do dispositivo.
 - `script_js/main.js`: ponto de entrada que inicia cada funcionalidade.
 - `script_js/time-language.js`: conversões e explicações das horas.
 - `script_js/clock.js`: desenho do relógio e interação por arrasto.

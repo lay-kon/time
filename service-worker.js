@@ -1,10 +1,11 @@
 /* Guarda todos os ficheiros necessários para abrir o projeto sem internet. */
 
-const cacheName = 'time-offline-v3';
+const cacheName = 'time-offline-v4';
 const filesRequiredForOfflineUse = [
   './',
   './index.html',
   './styles_css/style.css',
+  './styles_css/responsive.css',
   './script_js/main.js',
   './script_js/time-language.js',
   './script_js/clock.js',
