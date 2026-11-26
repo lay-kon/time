@@ -153,6 +153,7 @@ svg:focus-visible {
     stroke-linejoin: round
 }
 
+
 .btn:hover {
     background: var(--ink);
     color: var(--bg)
@@ -1312,7 +1313,6 @@ dl {
 .phrase-card p { margin: 0; color: var(--muted) }
 .phrase-card small { display: block; margin-top: 12px; padding-top: 10px; border-top: 1px solid var(--line); color: var(--muted); line-height: 1.5 }
 .learn-note { margin: 14px 0 24px; padding: 14px 16px; border-left: 4px solid var(--past); border-radius: 0 12px 12px 0; background: color-mix(in srgb, var(--past) 8%, var(--panel)); color: var(--muted); line-height: 1.6 }
-.offline-status { margin: -12px 2px 18px; color: var(--muted); font-size: .82rem }
 .time-units { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 14px 0 26px }
 .time-units article { display: flex; align-items: center; gap: 12px; min-width: 0; padding: 14px; border: 1px solid var(--line); border-radius: 14px; background: var(--panel) }
 .time-units article>span { display: grid; place-items: center; width: 42px; height: 42px; flex: none; border-radius: 12px; background: color-mix(in srgb, var(--to) 11%, var(--panel)); color: var(--to); font-size: .75rem; font-weight: 800 }

@@ -44,7 +44,9 @@ export function initializePractice(speakEnglish) {
   }
   document.querySelector('#choose-am').addEventListener('click', () => chooseMeridiem(false));
   document.querySelector('#choose-pm').addEventListener('click', () => chooseMeridiem(true));
-  document.querySelector('#speak-time').addEventListener('click', () => speakEnglish(formatSpokenEnglishTime(minutesSinceMidnight)));
+  document.querySelector('#speak-time').addEventListener('click', () => {
+    speakEnglish(formatSpokenEnglishTime(minutesSinceMidnight), reason => alert(reason));
+  });
   renderPracticeTime();
 
   return setPracticeTime;

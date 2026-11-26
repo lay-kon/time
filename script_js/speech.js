@@ -4,7 +4,7 @@
 export function speakEnglish(text, onUnavailable = () => {}) {
   const speechSynthesis = window.speechSynthesis;
   if (!speechSynthesis || !window.SpeechSynthesisUtterance) {
-    onUnavailable();
+    onUnavailable('A leitura em voz alta não está disponível neste navegador.');
     return;
   }
   try {
@@ -13,18 +13,21 @@ export function speakEnglish(text, onUnavailable = () => {}) {
     utterance.lang = 'en-US';
     utterance.rate = .85;
     const availableVoices = speechSynthesis.getVoices();
-    // Algumas vozes do sistema usam serviços online; esta aplicação só usa vozes locais.
-    const usableVoices = availableVoices.filter(voice => voice.localService);
-    const englishVoice = usableVoices.find(voice => voice.lang === 'en-US') || usableVoices.find(voice => voice.lang.startsWith('en-'));
-    if (!englishVoice) {
-      onUnavailable();
+    // Prefere uma voz local para permitir uso offline; online, aceita também vozes do navegador.
+    const localEnglishVoice = availableVoices.find(voice => voice.localService && voice.lang === 'en-US')
+      || availableVoices.find(voice => voice.localService && voice.lang.startsWith('en-'));
+    const anyEnglishVoice = availableVoices.find(voice => voice.lang === 'en-US')
+      || availableVoices.find(voice => voice.lang.startsWith('en-'));
+    const selectedVoice = localEnglishVoice || (navigator.onLine ? anyEnglishVoice : null);
+    if (selectedVoice) utterance.voice = selectedVoice;
+    else if (!navigator.onLine && availableVoices.length > 0) {
+      onUnavailable('Não há uma voz inglesa disponível sem internet.');
       return;
     }
-    if (englishVoice) utterance.voice = englishVoice;
-    utterance.onerror = onUnavailable;
+    utterance.onerror = () => onUnavailable('O navegador não conseguiu reproduzir a voz.');
     speechSynthesis.speak(utterance);
   } catch (error) {
     console.error(error);
-    onUnavailable();
+    onUnavailable('O navegador não conseguiu reproduzir a voz.');
   }
 }
