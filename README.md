@@ -39,6 +39,26 @@ decrescente (de 29 até 0) e usa-se *to*: é o que falta para a hora seguinte.
 - SVG para o relógio
 - Web Speech API para a pronúncia
 
+## Estrutura do código
+
+- `index.html`: conteúdo e estrutura das quatro abas.
+- `styles_css/style.css`: temas, componentes visuais e regras responsivas.
+- `script_js/main.js`: ponto de entrada que inicia cada funcionalidade.
+- `script_js/time-language.js`: conversões e explicações das horas.
+- `script_js/clock.js`: desenho do relógio e interação por arrasto.
+- `script_js/practice.js`: controlos e apresentação da hora na aba Praticar.
+- `script_js/lesson.js`: exemplos e cartões gerados para a lição e os Truques.
+- `script_js/quiz.js`: perguntas, respostas e pontuação do teste.
+- `script_js/speech.js`: leitura de frases através de vozes locais do navegador.
+- `script_js/tabs.js`: navegação entre as abas.
+- `service-worker.js`: cache local da página, estilos e módulos para uso offline.
+
+## Utilização offline
+
+O site precisa ser aberto primeiro com internet, num endereço HTTPS como o GitHub Pages. Aguarda a mensagem **“Modo offline pronto neste dispositivo”**; depois disso, a página, o relógio, a lição, o teste e a pontuação ficam guardados neste navegador e podem ser usados sem ligação. O teste é gerado localmente e não envia respostas para nenhum servidor. O projeto não carrega fontes, bibliotecas ou imagens da internet. A leitura por voz só usa vozes instaladas localmente; se o dispositivo não tiver uma voz inglesa, o teste mostra a frase para poderes responder na mesma.
+
+O cache offline é ativado por um service worker, por isso abrir o ficheiro `index.html` diretamente no computador não prepara o modo offline. Para testar localmente, usa um servidor de desenvolvimento em `localhost`.
+
 ## Como usar
 
 1. Descarrega ou clona o repositório.
