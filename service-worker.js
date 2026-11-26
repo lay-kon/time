@@ -1,6 +1,6 @@
 /* Guarda todos os ficheiros necessários para abrir o projeto sem internet. */
 
-const cacheName = 'time-offline-v4';
+const cacheName = 'time-offline-v5';
 const filesRequiredForOfflineUse = [
   './',
   './index.html',
@@ -30,36 +30,24 @@ self.addEventListener('activate', event => {
   ]));
 });
 
-// Navegações tentam a rede primeiro; se estiver offline, abrem a página guardada.
-// Os módulos e estilos usam o cache primeiro para funcionarem sem ligação.
+// Usa a versão mais recente quando há ligação e a cópia guardada quando não há.
 self.addEventListener('fetch', event => {
   const request = event.request;
   const requestUrl = new URL(request.url);
   if (request.method !== 'GET' || requestUrl.origin !== self.location.origin) return;
 
-  if (request.mode === 'navigate') {
-    event.respondWith(
-      fetch(request).then(networkResponse => {
-        if (networkResponse.ok) {
-          const responseCopy = networkResponse.clone();
-          caches.open(cacheName).then(cache => cache.put(request, responseCopy));
-        }
-        return networkResponse;
-      }).catch(async () => {
-        const cachedPage = await caches.match(request);
-        return cachedPage || caches.match(new URL('./index.html', self.registration.scope));
-      })
-    );
-    return;
-  }
-
   event.respondWith(
-    caches.match(request).then(cachedResponse => cachedResponse || fetch(request).then(networkResponse => {
+    fetch(request).then(networkResponse => {
       if (networkResponse.ok) {
         const responseCopy = networkResponse.clone();
         caches.open(cacheName).then(cache => cache.put(request, responseCopy));
       }
       return networkResponse;
-    }))
+    }).catch(async () => {
+      const cachedResponse = await caches.match(request);
+      if (cachedResponse) return cachedResponse;
+      if (request.mode === 'navigate') return caches.match(new URL('./index.html', self.registration.scope));
+      return Response.error();
+    })
   );
 });
