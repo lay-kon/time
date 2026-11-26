@@ -133,6 +133,26 @@ svg:focus-visible {
     cursor: pointer
 }
 
+/* Botões de áudio com símbolo universal e área tátil confortável. */
+.audio-button {
+    display: inline-grid;
+    place-items: center;
+    width: 44px;
+    height: 44px;
+    padding: 9px
+}
+
+.audio-icon {
+    display: block;
+    width: 22px;
+    height: 22px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round
+}
+
 .btn:hover {
     background: var(--ink);
     color: var(--bg)

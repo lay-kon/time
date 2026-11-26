@@ -1,9 +1,7 @@
 /* Reproduz frases em inglês com a Web Speech API disponível no navegador. */
 
 /** Lê em voz alta a frase recebida usando uma voz inglesa instalada, se existir. */
-export function speakEnglish(text, onUnavailable = () => {
-  alert('Não há uma voz inglesa instalada para uso offline. A frase continua visível no ecrã.');
-}) {
+export function speakEnglish(text, onUnavailable = () => {}) {
   const speechSynthesis = window.speechSynthesis;
   if (!speechSynthesis || !window.SpeechSynthesisUtterance) {
     onUnavailable();

@@ -31,8 +31,7 @@
       <button role="tab" data-p="truques"><span class="nav-icon">⌁</span> Truques</button>
       <button role="tab" data-p="teste"><span class="nav-icon">✓</span> Teste</button>
     </nav>
-    <p id="offline-status" class="offline-status" role="status" aria-live="polite">O modo offline fica pronto após a primeira visita online.</p>
-
+    <p id="offline-status" class="offline-status" role="status" aria-live="polite">Para usar esta página sem internet, abre-a primeiro com ligação.</p>
     <!-- Cada painel é independente e continua disponível sem ligação depois do cache. -->
     <!-- Lição de inglês: perguntas, regras, vocabulário e exemplos. -->
     <section id="aprender" role="tabpanel">
@@ -186,7 +185,12 @@
           </div>
           <div class="time-explanation-panel" id="time-explanation"></div>
           <div class="bar">
-            <button class="btn" id="speak-time">Ouvir</button>
+            <button class="btn audio-button" id="speak-time" type="button" aria-label="Ouvir a hora em inglês" title="Ouvir a hora em inglês">
+              <svg class="audio-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+                <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" />
+              </svg>
+            </button>
             <button class="btn" data-time-adjustment="-60">−1 hora</button><button class="btn" data-time-adjustment="60">+1 hora</button>
             <button class="btn" data-time-adjustment="-5">−5 min</button><button class="btn" data-time-adjustment="5">+5 min</button>
 
@@ -220,7 +224,12 @@
         <div id="question-box">
           <svg class="analog-clock" id="question-clock" aria-label="Relógio da pergunta" style="max-width:300px"></svg>
           <p class="spoken-question" id="question-prompt"></p>
-          <button class="btn" id="speak-question" hidden>Ouvir</button>
+          <button class="btn audio-button" id="speak-question" type="button" aria-label="Ouvir a pergunta" title="Ouvir a pergunta" hidden>
+            <svg class="audio-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <path d="M11 5 6 9H3v6h3l5 4V5Z" />
+              <path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13" />
+            </svg>
+          </button>
           <div class="answer-options" id="answer-options"></div>
           <div class="answer-feedback" id="answer-feedback" hidden></div>
           <button class="btn" id="next-question" hidden>Seguinte</button>

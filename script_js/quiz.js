@@ -157,7 +157,7 @@ export function initializeQuiz(speakEnglish) {
   document.querySelector('#speak-question').addEventListener('click', () => {
     const spokenQuestion = formatSpokenEnglishTime(currentQuestion.minutesSinceMidnight);
     speakEnglish(spokenQuestion, () => {
-      document.querySelector('#question-prompt').textContent = 'A voz offline não está disponível neste dispositivo. Lê a frase: “' + spokenQuestion + '” Qual é a hora e o período?';
+      document.querySelector('#question-prompt').textContent = '“' + spokenQuestion + '” Qual é a hora e o período?';
     });
   });
   document.querySelector('#next-question').addEventListener('click', () => {

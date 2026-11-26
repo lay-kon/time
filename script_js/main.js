@@ -18,7 +18,7 @@ if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.
     .then(() => navigator.serviceWorker.ready)
     .then(() => {
       const offlineStatus = document.querySelector('#offline-status');
-      if (offlineStatus) offlineStatus.textContent = 'Modo offline pronto neste dispositivo.';
+      if (offlineStatus) offlineStatus.textContent = 'Esta página já está disponível sem internet.';
     })
     .catch(error => console.warn('Não foi possível preparar o modo offline:', error));
 }
